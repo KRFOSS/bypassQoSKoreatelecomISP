@@ -35,6 +35,8 @@ ROKFOSS 프로젝트에서 추가한 부분에 대해서 문의가 있거나 새
 
 **참고:** 다른 TP-Link 라우터나 공유기에서 Option 60을 성공적으로 설정한 사례가 있다면, [krfoss@krfoss.org](mailto:krfoss@krfoss.org)로 이메일을 보내주세요.
 
+이 방법은 무선 기능을 지원하는 라우터에선 사용이 어려울 수 있습니다. 
+
 ## OPNsense
 
 OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같은 절차를 따르세요:
