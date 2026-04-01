@@ -94,9 +94,70 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 
 이후 상단의 Advanced 메뉴로 진입 후 DHCP Options에 2번에서 설정한 타입 지정 후 저장. (이미지 참고)
 
-
-
 이후에 라우터를 재부팅 하면 IP가 KT 프리미엄 IP로 변경 됩니다.
+
+
+## Synology NAS
+
+이 내용은 DSM `7.3.1-86003 Update 1`을 기준으로 합니다.
+
+1. **SSH 활성화**  
+   제어판 > 터미널 및 SNMP > SSH 서비스 활성화
+
+2. **`dhclient.conf` 수정**  
+   `/etc/dhclient/ipv4/dhclient.conf` 경로에 있는 파일을 아래와 같이 수정합니다.
+
+   수정 전:
+   ```conf
+   initial-interval 2;
+   send host-name = gethostname();
+   ```
+
+   수정 후:
+   ```conf
+   initial-interval 2;
+   send host-name = gethostname();
+   send vendor-class-identifier "KT_PR_HH_A_A";
+   ```
+
+3. **네트워크 인터페이스 재시작**
+
+   네트워크 인터페이스를 재시작해야 DHCP가 정상 반영됩니다.
+
+   이때 네트워크 연결이 끊어질 수 있으므로 `&&`를 붙여 두 명령어가 한 번에 실행되게 하거나, 다른 LAN을 통해 작업하시는 게 좋습니다.
+
+   ```shell
+   sudo ip link set {인터페이스이름} down
+   sudo ip link set {인터페이스이름} up
+   ```
+
+4. **반영되었는지 확인하기**
+
+   아래 명령어를 입력하면 DHCP 패킷을 직접 확인할 수 있습니다.
+
+   ```shell
+   sudo tcpdump -i {인터페이스이름} -v port 67 or port 68
+   ```
+
+   맨 아래 `Vendor-Class (60)`에 `KT_PR_HH_A_A`가 제대로 출력되는지 확인합니다.
+
+   ```shell
+   tcpdump: listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+   21:41:24.849963 IP (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 328)
+       0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from {MAC주소} (oui Unknown), length 300, xid 0x1a17e05d, Flags [none]
+         Client-Ethernet-Address {MAC주소} (oui Unknown)
+         Vendor-rfc1048 Extensions
+           Magic Cookie 0x63825363
+           DHCP-Message (53), length 1: Request
+           Requested-IP (50), length 4: {IP주소}
+           Hostname (12), length 5: "{Hostname}"
+           Parameter-Request (55), length 7:
+             Subnet-Mask (1), BR (28), Time-Zone (2), Default-Gateway (3)
+             Domain-Name (15), Domain-Name-Server (6), Hostname (12)
+           Vendor-Class (60), length 12: "KT_PR_HH_A_A"
+           Client-ID (61), length 7: ether {MAC주소}
+   ```
+
 
 # ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다.
 
