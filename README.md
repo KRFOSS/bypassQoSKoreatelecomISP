@@ -76,7 +76,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 
 <img width="575" height="726" alt="Image" src="https://github.com/user-attachments/assets/2704f43a-06bf-420f-ab66-77005a3cd93c" />
 
-1. WinBox 접속후 우측 메뉴에서 IP -> DHCP Client로 이동.
+1. WinBox 접속후 좌측 메뉴에서 IP -> DHCP Client로 이동.
 
 <img width="766" height="467" alt="Image" src="https://github.com/user-attachments/assets/bb6cdd37-e5ba-4680-8e7b-c2928cadda2c" />
 
@@ -264,7 +264,17 @@ https://archive.md/VRZIO
 
 --------------------------------
 
-iptime(알파테스트중)
+iptime(New)
+
+2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2[<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">#</a>]에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. <br>
+
+해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
+
+<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
+
+--------------------------------
+
+iptime(알파테스트중/구 기종)
 
 백도어 출처 - https://github.com/tylzars/iptime-debug - 펌웨어 버전 15.10.0, ipTIME A2004S에서 동작 확인됨
 
