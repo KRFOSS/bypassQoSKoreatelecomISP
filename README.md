@@ -1,6 +1,7 @@
 
 # bypassQoSKoreatelecomISP
-<img width="1200" height="673" alt="Image" src="https://cdn.krfoss.org/web/ROKFOSS.png" />
+<img width="2819" height="529" alt="image" src="https://github.com/user-attachments/assets/191bc8b2-2ec1-4d47-8671-8a066bef9312" />
+
 
 ## ROKFOSS 프로젝트에서 일부 수정하였습니다
 
