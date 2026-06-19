@@ -97,6 +97,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 이후에 라우터를 재부팅 하면 IP가 KT 프리미엄 IP로 변경 됩니다.
 
 
+
 ## Synology NAS
 
 이 내용은 DSM `7.3.1-86003 Update 1`을 기준으로 합니다.
@@ -157,6 +158,14 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
            Vendor-Class (60), length 12: "KT_PR_HH_A_A"
            Client-ID (61), length 7: ether {MAC주소}
    ```
+
+## iptime (신규 펌웨어)
+2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2 에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. [<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">지원 모델 참고</a>]
+해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
+
+<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
+
+--------------------------------   
 
 
 # ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다.
@@ -262,19 +271,8 @@ OpenWrt -
 
 https://archive.md/VRZIO
 
---------------------------------
 
-iptime(New)
-
-2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2[<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">#</a>]에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. <br>
-
-해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
-
-<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
-
---------------------------------
-
-iptime(알파테스트중/구 기종)
+iptime(알파테스트중)
 
 백도어 출처 - https://github.com/tylzars/iptime-debug - 펌웨어 버전 15.10.0, ipTIME A2004S에서 동작 확인됨
 
