@@ -165,7 +165,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 
 <img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
 
---------------------------------   
+--------------------------------
 
 
 # ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다.
