@@ -76,7 +76,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 
 <img width="575" height="726" alt="Image" src="https://github.com/user-attachments/assets/2704f43a-06bf-420f-ab66-77005a3cd93c" />
 
-1. WinBox 접속후 우측 메뉴에서 IP -> DHCP Client로 이동.
+1. WinBox 접속후 좌측 메뉴에서 IP -> DHCP Client로 이동.
 
 <img width="766" height="467" alt="Image" src="https://github.com/user-attachments/assets/bb6cdd37-e5ba-4680-8e7b-c2928cadda2c" />
 
@@ -95,6 +95,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 이후 상단의 Advanced 메뉴로 진입 후 DHCP Options에 2번에서 설정한 타입 지정 후 저장. (이미지 참고)
 
 이후에 라우터를 재부팅 하면 IP가 KT 프리미엄 IP로 변경 됩니다.
+
 
 
 ## Synology NAS
@@ -157,6 +158,14 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
            Vendor-Class (60), length 12: "KT_PR_HH_A_A"
            Client-ID (61), length 7: ether {MAC주소}
    ```
+
+## iptime (신규 펌웨어)
+2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2 에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. [<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">지원 모델 참고</a>]
+해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
+
+<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
+
+--------------------------------
 
 
 # ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다.
@@ -262,7 +271,6 @@ OpenWrt -
 
 https://archive.md/VRZIO
 
---------------------------------
 
 iptime(알파테스트중)
 
