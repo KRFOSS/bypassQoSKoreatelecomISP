@@ -162,12 +162,6 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
            Client-ID (61), length 7: ether {MAC주소}
    ```
 
-## iptime (신규 펌웨어)
-2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2 에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. [<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">지원 모델 참고</a>]
-해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
-
-<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
-
 --------------------------------
 
 
