@@ -1,4 +1,4 @@
-https://github.com/KRFOSS/bypassQoSKoreatelecomISP.git
+
 # bypassQoSKoreatelecomISP
 <img width="2819" height="529" alt="image" src="https://github.com/user-attachments/assets/191bc8b2-2ec1-4d47-8671-8a066bef9312" />
 
