@@ -1,47 +1,33 @@
 
 # bypassQoSKoreatelecomISP
-<img width="2819" height="529" alt="image" src="https://github.com/user-attachments/assets/191bc8b2-2ec1-4d47-8671-8a066bef9312" />
+<img alt="image" src="https://github.com/user-attachments/assets/191bc8b2-2ec1-4d47-8671-8a066bef9312" />
 
-
-## ROKFOSS 프로젝트에서 일부 수정하였습니다
-
-**이 글은 ROKFOSS 프로젝트에서 일부 수정한 것입니다. [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP)에는 없는 부분이 있을 수 있습니다.**
+> [!IMPORTANT]
+> **이 글은 ROKFOSS 프로젝트에서 일부 수정하였습니다.** [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP)에는 없는 부분이 있을 수 있습니다.
 
 ### 적용 가능 대상
-
 - ✅ KT
-- ✅ KT망을 이용하는 일부 인터넷
+- ✅ KT망을 이용하는 일부 인터넷 (**확인됨: KT 스카이라이프**)
 
 ### 적용 불가 대상
-
-- ❌ KT 이외의 모든 인터넷(SKB, LG 등 모두다)
+- ❌ KT 이외의 모든 인터넷 (SKB, LG 및 해당 망을 이용하는 모든 인터넷)
 
 **LG의 경우 현재까지 방법이 없으며, 필요한 경우 제한이 없는 SKB 또는 KT를 이용하는 것이 방법이 될 수도 있습니다**
 
 ### 문의
+상황에 따라 AI(ChatGPT, Claude, Gemini 등)의 도움을 받는 것이 더 빠릅니다. 이 저장소 링크를 첨부하여 상황을 요청하고 진행 상황을 공유하면 문제가 해결될 수도 있습니다.
 
-보통의 경우 별도로 문의를 남기는 것보다 인공지능(ChatGPT, Claude, Gemini 등)의 도움을 받는 것이 더 빠릅니다. 인공지능에게 이 저장소 링크를 첨부하여 설명을 요청하고 진행 상황을 인공지능과 공유하세요. 대부분의 경우 문제를 해결할 수도 있습니다.
+단, 일부 공유기에 한해 정확도가 떨어질 가능성도 있으며 반드시 검증이 필요합니다.
 
 ### PR
-
 ROKFOSS 디스코드에 가입되어 있다면 PR 처리가 더욱 빠르고 수월할 수 있습니다. 디스코드 계정이 있는 경우 [ROKFOSS 공식 디스코드](https://chat.krfoss.org)에 참여해보세요!
 
 ### 설정 검증
 
-_설정이 제대로 되었는지 확인하고 싶다면 ROKFOSS 프로젝트 분산미러 웹 사이트를 [방문](https://http.krfoss.org)하여 자신의 위치 정보를 확인하세요. 위치가 한강에 빠져있다고 나온다면 설정이 올바르게 된것입니다._
+설정이 제대로 되었는지 확인하고 싶다면 [ROKFOSS 프로젝트 분산미러](https://http.krfoss.org) 웹 사이트를 하여 자신의 위치 정보를 확인하세요. 위치가 한강에 빠져있다고 나온다면 설정이 올바르게 된것입니다. (위치는 🔴 (빨간점)으로 표시됩니다.)
 
 ### ❗알아두기
-
-이 방법을 시도하기 전 상위 라우터(공유기)가 있지 않은지, 해당 라우터로부터 공인대역이 아닌 사설대역을 받고 있진 않은지 확인하십시오. 만일 사설대역을 받고 있는 경우 환경에 따라 적용되지 않을 수도 있습니다.
-
-> [!TIP]
-> 이 글은 네트워크 장비에 관한 지식이 필요합니다. 관련 지식이 부족한 경우 인공지능의 도움을 받아보세요.
-> > KT뿐만 아니라 KT 계열사(KT망을 이용하는) 일부 서비스 제공업체에서도 이러한 설정을 적용하여 사용할 수 있습니다.
-> > 
-> > 확인됨 : KT 스카이라이프
-
-> [!TIP]
-> 프리미엄 대역을 잘 받았는지 확인하려면 ROKFOSS 프로젝트의 분산미러 페이지에 [방문](https://http.krfoss.org)하여 자신의 위치 정보를 확인하세요. **🔴빨간점**이 한강에 빠져있다고 나온다면 제대로 설정된 것입니다.
+이 방법을 시도하기 전 **이중 공유기** 환경이 아닌지 확인하세요. 작업하려는 라우터(공유기)의 외부 IP가 공인대역이 아닌 사설대역을 받고 있는 경우 적용되지 않을 수 있으며, 해당 작업은 **네트워크 장비에 관한 지식이 필요합니다. 관련 지식이 부족한 경우 AI의 도움을 받으세요.**
 
 ## TPLINK ROUTER
 
@@ -61,7 +47,6 @@ _설정이 제대로 되었는지 확인하고 싶다면 ROKFOSS 프로젝트 �
 이 방법은 **TPLINK의 유무선 공유기에선 적용이 안될 수도 있습니다**
 
 ## OPNsense
-
 OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같은 절차를 따르세요:
 
 1.  **Interfaces 탭**에서 **WAN 인터페이스**를 선택합니다.
@@ -73,7 +58,7 @@ OPNsense에서 WAN 인터페이스에 Option 60을 추가하려면 다음과 같
 
 <img width="900" height="1060" alt="image" src="https://github.com/user-attachments/assets/3b6051b2-1058-4d6e-a7f6-25ec6a0d558b" />
 
-## MikroTik(미크로틱 라우터)
+## MikroTik (미크로틱 라우터)
 
 예시 사용기기: MikroTik Hap AX3(C53UiG+5HPaxD2HPaxD)
 
@@ -274,7 +259,3 @@ https://archive.md/VRZIO
 iptime의 경우 ROKFOSS PROJECT에서 관리하지 않습니다. [원본](https://github.com/veilRedeemer/bypassQoSKoreatelecomISP)에 있는 방법으로 시도하세요.
 
 성공적으로 프리미엄 IP를 취득했거나 실패했다면 기기 모델명과 펌웨어 버전, 미러 다운로드 주소 사용여부, 실패 시 출력되는 메세지를 3570kgen@naver.com 에 제보하는 것을 고려해보세요.
-
---------------------------------
-
-
